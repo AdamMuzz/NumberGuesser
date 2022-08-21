@@ -1,0 +1,24 @@
+#Canvas {
+	background-color: black;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.Wide {
+	width: 60vh;
+	aspect-ratio: 1;
+}
+
+.Tall {
+	width: 80vw;
+	aspect-ratio: 1;
+}
+
+.Pixel {
+	width: 3.5714%;
+	aspect-ratio: 1;
+	background-color: black;
+}
+.Clicked {
+	background-color: white;
+}
