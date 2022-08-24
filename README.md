@@ -2,7 +2,7 @@
 
 ### Dependencies
 
-`tensorflow` or `tensorflow-macos` depending on OS 
+`tensorflow` or `tensorflow-macos` depending on OS<br>
 `react` 
 
 ### Rough Outline
