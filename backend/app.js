@@ -17,9 +17,10 @@ app.get('/', (req, res) => {
 	res.send('Hello World!')
 })
 
-app.post('/api', (req, res) => {
-	//console.log(req.body);
-	res.send(run_subprocess(req.body));
+//async b/c python script takes time
+app.post('/api', async (req, res) => {
+	const response = await run_subprocess(req.body); //force wait for api call
+	res.send(response)
 })
 
 app.listen(port, () => {
