@@ -1,10 +1,15 @@
 # NumberGuesser
 
-### Dependencies
+### Packages
 
 `tensorflow` or `tensorflow-macos` depending on OS<br>
-`react` 
+`react` for frontend<br>
+`express` for backend<br>
 
 ### Rough Outline
 
-Used MNIST dataset from Keras to create basic digit classifier in Python. Ported the model over to Javascript and built interactive UI to allow users to hand draw digits and have the AI try and guess them in real time.
+I first used the MNIST dataset from Keras to create basic digit classifier in Python.
+
+Next I built an interactive UI to allow users to draw digits on a 28x28 grid canvas. With this, the user can press a 'guess' button and the frontend will send a JSON array representing the canvas over to the backend.
+
+For the backend, I chose an inefficent structure to practice interfacing between express and NodeJS subprocesses. Notably, it would have been much more performat to build the entire backend in Python or even better port the tensorflow model to tensorflow-js and remove the need for a backend entirely, but I wanted the practice so I opted for the chosen route.
