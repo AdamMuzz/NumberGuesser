@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 app.post('/api', (req, res) => {
 	//console.log(req.body);
-	run_subprocess(req.body);
+	res.send(run_subprocess(req.body));
 })
 
 app.listen(port, () => {

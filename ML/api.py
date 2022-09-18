@@ -19,4 +19,4 @@ model = keras.models.load_model('../model')
 #run model on input
 prediction = model.predict(input)
 rez = np.argmax(prediction)
-print(f'{rez}: confidence {prediction[0][rez]:.3f}')
+print(f'{rez} confidence {prediction[0][rez]:.3f}')
