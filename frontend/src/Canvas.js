@@ -24,8 +24,9 @@ function Canvas() {
 	}
 
 	const clear = () => set_pixels(Array(28*28).fill(0)) //set pixels back to 'unpainted'
+
 	const guess = () => {
-		const data = pixels;
+		const data = pixels; //send current state of canvas over to backend
 		fetch('http://192.168.1.103:3003/api', {
   			method: 'POST',
   			headers: {'Content-Type': 'application/json'},
@@ -38,18 +39,6 @@ function Canvas() {
   		.catch((error) => {
     		console.error('Error:', error);
   		});
-		/*const data = {'amount': 4}
-		fetch('http://192.168.1.103:3003/api', {
-			//credentials: 'include',
-			method: 'POST',
-			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify(data)
-		})
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(`square of ${4} is ${data}`);
-		})
-		.catch((error) => {console.error('Error:', error)})*/
 	}
 
 	//map each T/F of canvas to a white/black pixel
