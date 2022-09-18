@@ -1,6 +1,5 @@
 import './App.css';
 import Canvas from './Canvas';
-import Guess from './Guess';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
 		</div>
 
 		<Canvas />
-		<Guess />
     </div>
   );
 }

@@ -9,6 +9,8 @@ const Class = ratio >= 1 ? "Wide" : "Tall"
 function Canvas() {
 	const [pixels, set_pixels] = useState(Array(28*28).fill(0))
 	const [draw, set_draw] = useState(false)
+	const [guess, set_guess] = useState('');
+	const [confidence, set_confidence] = useState('');
 
 	//ensure user is left-clicking
 	const handle_down = () => set_draw(true)
@@ -25,7 +27,10 @@ function Canvas() {
 
 	const clear = () => set_pixels(Array(28*28).fill(0)) //set pixels back to 'unpainted'
 
-	const guess = () => {
+	const handle_guess = () => {
+		set_guess('...');
+		set_confidence('...');
+
 		const data = pixels; //send current state of canvas over to backend
 		fetch('http://192.168.1.103:3003/api', {
   			method: 'POST',
@@ -35,6 +40,8 @@ function Canvas() {
   		.then((response) => response.json())
   		.then((data) => {
     		console.log('Success:', data);
+			set_guess(data[0]);
+			set_confidence(data[1]);
   		})
   		.catch((error) => {
     		console.error('Error:', error);
@@ -45,7 +52,7 @@ function Canvas() {
 	return (
 		<div>
 			<button className="button" onClick={clear}>Clear</button>
-			<button className="button" onClick={guess}>Guess</button>
+			<button className="button" onClick={handle_guess}>Guess</button>
 
 			<div id="Canvas" className={Class} onMouseDown={handle_down} onMouseUp={handle_up}>
 				{pixels.map((pixel, el) => {
@@ -53,6 +60,9 @@ function Canvas() {
 					return <Pixel Class={pixel_class} click={handle_paint} ID={el} key={el}/>
 				})}
 			</div>
+
+			<h2>Guess: {guess}</h2>
+			<h2>Confidence: {confidence}</h2>
 		</div>
 	);
 }
