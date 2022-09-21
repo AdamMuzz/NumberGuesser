@@ -5,6 +5,9 @@ import {useState} from 'react'
 const ratio = window.innerWidth / window.innerHeight
 const Class = ratio >= 1 ? "Wide" : "Tall"
 
+//backend endpoint
+const ENDPOINT = 'http://192.168.1.103:3003/api'
+
 //functional component for the drawing area
 function Canvas() {
 	const [pixels, set_pixels] = useState(Array(28*28).fill(0))
@@ -32,7 +35,7 @@ function Canvas() {
 		set_confidence('...');
 
 		const data = pixels; //send current state of canvas over to backend
-		fetch('http://192.168.1.103:3003/api', {
+		fetch(ENDPOINT, {
   			method: 'POST',
   			headers: {'Content-Type': 'application/json'},
   			body: JSON.stringify(data),
