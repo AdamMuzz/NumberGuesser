@@ -16,8 +16,8 @@ For the backend, I chose an inefficent structure to practice interfacing between
 
 ### Running Locally
 
-To run the project, ensure that the ENDPOINT var located in `~/frontend/src/Canvas.js` is set to your machine's IP addr
-cd into the `frontend` dir and execute `npm start`
-cd into the `backend` dir and execute `npm start`
+To run the project, ensure that the ENDPOINT var located in `~/frontend/src/Canvas.js` is set to your machine's IP addr<br>
+cd into the `frontend` dir and execute `npm start`<br>
+cd into the `backend` dir and execute `npm start`<br>
 
 You should now be able to successfully draw out a number and hit guess for the model to try and classify it!
